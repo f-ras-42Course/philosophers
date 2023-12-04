@@ -7,5 +7,3 @@ a.out
 *.dSYM
 test
 test.c
-philo
-philo_bonus

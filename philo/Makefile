@@ -6,20 +6,19 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/04 16:40:24 by fras          #+#    #+#                  #
-#    Updated: 2023/12/04 16:40:30 by fras          ########   odam.nl          #
+#    Updated: 2023/12/04 17:29:14 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo philo_bonus
+NAME = philo
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
 INCLUDE = -I include -I $(EXTLIB_DIR)/include
 SRC_DIR = src
 OBJ_DIR = obj
 PHILO_SOURCES = $(shell find $(SRC_DIR)/philo -type f -name "*.c")
-PHILO_OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SERVER_SOURCES:%.c=%.o))
-BONUS_SOURCES = $(shell find $(SRC_DIR)/bonus -type f -name "*.c")
-BONUS_OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(CLIENT_SOURCES:%.c=%.o))
+PHILO_OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(PHILO_SOURCES:%.c=%.o))
+
 RM = rm -f
 
 # Libraries
