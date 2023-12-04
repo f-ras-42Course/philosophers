@@ -1,0 +1,3 @@
+[submodule "lib/libs42"]
+	path = lib/libs42
+	url = https://github.com/f-ras-42Course-EXTRAS/libs42.git
