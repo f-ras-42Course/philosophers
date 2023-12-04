@@ -1,0 +1,11 @@
+.DS_Store
+.vscode
+a.out
+*.swp
+*.a
+*.o
+*.dSYM
+test
+test.c
+philo
+philo_bonus
