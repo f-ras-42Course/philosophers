@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/06 15:09:03 by fras          ########   odam.nl         */
+/*   Updated: 2023/12/06 15:54:10 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <pthread.h>
 # include <string.h>
 # include "definitions.h"
+# include "libft.h"
 
 // Philo
 
