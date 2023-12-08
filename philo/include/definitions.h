@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/08 18:38:11 by fras          ########   odam.nl         */
+/*   Updated: 2023/12/08 18:43:15 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 # define _RESET		"\e[0m"
 
 typedef enum e_exit_codes
-{
-	SUCCESSFULLY,
-	MALLOC_FAILED,
+{,
+	MALLOC_FAILED = 1,
 	INVALID_INPUT
 }	t_exit_codes;
 
