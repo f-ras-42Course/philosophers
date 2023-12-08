@@ -6,13 +6,8 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:18 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/06 14:57:09 by fras          ########   odam.nl         */
+/*   Updated: 2023/12/08 18:38:33 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-bool	is_valid_input(int argc, char **argv)
-{
-
-}

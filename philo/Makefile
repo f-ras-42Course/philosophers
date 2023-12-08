@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/04 16:40:24 by fras          #+#    #+#                  #
-#    Updated: 2023/12/08 17:26:59 by fras          ########   odam.nl          #
+#    Updated: 2023/12/08 18:26:59 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@ CFLAGS = -Werror -Wextra -Wall
 INCLUDE = -I include -I $(EXTLIB_DIR)/include
 SRC_DIR = src
 OBJ_DIR = obj
-PHILO_SOURCES = $(shell find $(SRC_DIR)/philo -type f -name "*.c")
+PHILO_SOURCES = $(shell find $(SRC_DIR)/ -type f -name "*.c")
 PHILO_OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(PHILO_SOURCES:%.c=%.o))
 RM = rm -f
 
 # Libraries
 LIB_DIR = lib
 EXTLIB_DIR = $(LIB_DIR)/libs42
-LIBRARIES = $(addprefix $(LIB_DIR)/, libft.a)
+LIBRARIES = $(addprefix $(LIB_DIR)/, libft.a libftextended.a)
 
 ifdef DEBUG
 CFLAGS += -g
