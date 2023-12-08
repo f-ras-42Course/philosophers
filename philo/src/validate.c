@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:44:22 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/08 18:35:05 by fras          ########   odam.nl         */
+/*   Updated: 2023/12/08 19:04:58 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,26 @@ bool	valid_input(int argc, char **argv)
 	}
 	while (++i < argc)
 	{
-		if (!string_is_digit_only(argv[i]))
+		if (!string_is_digit_only(argv[i]) || !below_max_digits(9, argv[i]))
 		{
 			print_specify_invalid_input(i);
 			print_error(INVALID_INPUT);
 			return (false);
 		}
+	}
+	return (true);
+}
+
+bool	below_max_digits(int max_digits, char *string)
+{
+	int	i;
+
+	i = 0;
+	while (ft_isdigit(string[i]) && string[i])
+	{
+		if (i > max_digits - 1)
+			return (false);
+		i++;
 	}
 	return (true);
 }
