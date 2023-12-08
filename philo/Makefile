@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/04 16:40:24 by fras          #+#    #+#                  #
-#    Updated: 2023/12/06 15:47:58 by fras          ########   odam.nl          #
+#    Updated: 2023/12/08 17:26:59 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ SRC_DIR = src
 OBJ_DIR = obj
 PHILO_SOURCES = $(shell find $(SRC_DIR)/philo -type f -name "*.c")
 PHILO_OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(PHILO_SOURCES:%.c=%.o))
-
 RM = rm -f
 
 # Libraries
