@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/08 18:43:59 by fras          ########   odam.nl         */
+/*   Updated: 2023/12/14 16:35:44 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ typedef enum e_exit_codes
 	INVALID_INPUT
 }	t_exit_codes;
 
-typedef enum e_invalid_input_type
+typedef enum e_input_type
 {
-	UNEXPECTED_NUMBER_OF_ARGUMENTS,
-	INCORRECT_NUMBER_OF_PHILOSOPHERS,
-	INCORRECT_TIME_TO_DIE,
-	INCORRECT_TIME_TO_EAT,
-	INCORRECT_TIME_TO_SLEEP,
-	INCORRECT_NUMBER_OF_TIMES_PHILOSOPHERS_MUST_EAT
-}	t_invalid_input_type;
+	NUMBER_OF_PHILOSOPHERS,
+	TIME_TO_DIE,
+	TIME_TO_EAT,
+	TIME_TO_SLEEP,
+	NUMBER_OF_TIMES_PHILOSOPHERS_MUST_EAT,
+	UNEXPECTED_NUMBER_OF_ARGUMENTS
+}	t_input_type;
 
 #endif
