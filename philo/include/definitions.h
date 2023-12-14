@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/14 17:02:37 by fras          ########   odam.nl         */
+/*   Updated: 2023/12/14 17:44:29 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef enum e_exit_codes
 
 typedef enum e_input_type
 {
-	PHILOSOPHERS,
+	TOTAL_PHILOSOPHERS,
 	DIE_TIME,
 	EAT_TIME,
 	SLEEP_TIME,
-	NUMBER_OF_DINNERS,
+	NUMBER_OF_MEALS,
 	UNEXPECTED_NUMBER_OF_ARGUMENTS
 }	t_input_type;
 
