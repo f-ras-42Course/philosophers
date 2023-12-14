@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:20:36 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/08 19:08:38 by fras          ########   odam.nl         */
+/*   Updated: 2023/12/14 16:27:09 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_error(t_exit_codes exit_code)
 		ft_putstr_fd("philo: error invalid input\n", STDERR_FILENO);
 }
 
-void	print_specify_invalid_input(t_invalid_input_type specify)
+void	print_error_specify_invalid_input(t_invalid_input_type specify)
 {
 	if (specify == UNEXPECTED_NUMBER_OF_ARGUMENTS)
 		ft_putstr_fd(_RED "number of arguments must be 4 or 5\n" _RESET, \

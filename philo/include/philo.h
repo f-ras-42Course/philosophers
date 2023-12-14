@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/08 18:56:37 by fras          ########   odam.nl         */
+/*   Updated: 2023/12/14 16:27:26 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 // Error
 void	print_error(t_exit_codes exit_code);
-void	print_specify_invalid_input(t_invalid_input_type specify);
+void	print_error_specify_invalid_input(t_invalid_input_type specify);
 
 // Validate
 bool	valid_input(int argc, char **argv);
