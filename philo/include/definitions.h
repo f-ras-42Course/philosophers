@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/12/14 17:44:29 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/05 14:28:02 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,11 @@ typedef enum e_input_type
 	NUMBER_OF_MEALS,
 	UNEXPECTED_NUMBER_OF_ARGUMENTS
 }	t_input_type;
+
+typedef enum e_philo_state
+{
+	CONTINUE,
+	STOP
+}	t_philo_state;
 
 #endif
