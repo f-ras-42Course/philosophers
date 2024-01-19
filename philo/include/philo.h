@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/15 17:45:28 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/19 22:09:27 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ bool	below_max_digits(int max_digits, char *string);
 void	insert_data(int start_data[], int argc, char **argv);
 
 // Philo
-
 void	run_philo(int start_data[]);
+
+// Philosophers
+t_philo	*init_philosophers(int amount);
+//void	clean_philosophers(t_philo *philos, int amount); -- might not be necesarry.
 
 #endif
