@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/19 22:09:06 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/22 19:02:19 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,8 @@ void	test_ids(t_philo *philos, int times)
 	}
 }
 
-void	run_philo(int start_data[])
+void	run_philo(t_philo *philos, int start_data[])
 {
-	t_philo	*philos;
-
-	philos = init_philosophers(start_data[TOTAL_PHILOSOPHERS]);
-	if (!philos)
-		return (print_error(MALLOC_FAILED));
 	test_ids(philos, (start_data[TOTAL_PHILOSOPHERS]));
 	free(philos);
 	// pthread_create(
@@ -42,3 +37,6 @@ void	run_philo(int start_data[])
 	// 	philosopher += 2;
 	// }
 }
+200
+
+199 % 200 

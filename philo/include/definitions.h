@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/18 21:17:17 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/22 19:02:24 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,25 @@ typedef enum e_input_type
 	UNEXPECTED_NUMBER_OF_ARGUMENTS
 }	t_input_type;
 
-typedef struct s_main
-{
-	bool			finished;
-	pthread_mutex_t	print_mutex;
-	pthread_mutex_t	eat_mutex;
-	pthread_mutex_t	finish_mutex;
-}	t_main;
-
 typedef struct s_philo
 {
-	int			id;
-	pthread_t	thread;
+	int				id;
+	pthread_t		thread;
 }	t_philo;
 
+typedef struct s_mutex
+{
+	pthread_mutex_t	print;
+	pthread_mutex_t	eat;
+	pthread_mutex_t	finish;
+}	t_mutex;
+
+typedef struct s_main
+{
+	t_philo			*philos;
+	t_mutex			*mutex;
+	pthread_mutex_t	fork[200];
+	bool			finished;
+}	t_main;
 
 #endif
