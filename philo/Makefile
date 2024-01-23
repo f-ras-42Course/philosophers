@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/04 16:40:24 by fras          #+#    #+#                  #
-#    Updated: 2024/01/23 19:30:48 by fras          ########   odam.nl          #
+#    Updated: 2024/01/23 19:32:02 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,13 +70,3 @@ resan: fclean fsan
 # Info Message
 message:
 	@echo "\033[92m$(EXECUTABLE) is ready for usage!\033[0m"
-
-# Submodule functions
-initialize_submodules:
-	git submodule update --init --recursive
-	git submodule foreach --recursive git checkout master
-
-update_submodules:
-	git submodule update --recursive
-	git submodule foreach --recursive git fetch
-	git submodule foreach git merge origin master
