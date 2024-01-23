@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/23 20:26:44 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/23 21:16:39 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_philo
 {
 	uint8_t			id;
 	pthread_t		thread;
-	uint8_t			fork_id[2];
+	uint8_t			fork_pos[2];
 }	t_philo;
 
 typedef struct s_mutex_group
@@ -53,7 +53,6 @@ typedef struct s_mutex_group
 typedef struct s_general
 {
 	int				start_data[5];
-	t_mutex_group	mutex;
 	bool			finished;
 }	t_general;
 

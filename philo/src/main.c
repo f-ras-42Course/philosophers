@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:15 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/23 20:26:54 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/23 20:59:59 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_general		info;
 	t_philo			*philos;
+	// t_mutex_group	mutex;
 
 	if (!valid_input(argc, argv))
 		return (INVALID_INPUT);
