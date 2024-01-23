@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/23 17:05:18 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/23 20:26:44 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define _RED		"\e[1;31m"
 # define _WHITE		"\e[1;37m"
 # define _RESET		"\e[0m"
+# define LEFT		0
+# define RIGHT		1
 
 typedef enum e_exit_codes
 {
@@ -37,22 +39,22 @@ typedef struct s_philo
 {
 	uint8_t			id;
 	pthread_t		thread;
-	pthread_mutex_t	fork_left;
-	pthread_mutex_t	fork_right;
+	uint8_t			fork_id[2];
 }	t_philo;
 
 typedef struct s_mutex_group
 {
+	pthread_mutex_t	fork[200];
 	pthread_mutex_t	print;
 	pthread_mutex_t	eat;
 	pthread_mutex_t	finish;
 }	t_mutex_group;
 
-typedef struct s_main
+typedef struct s_general
 {
-	t_philo			*philos;
-	t_mutex_group	*mutex;
+	int				start_data[5];
+	t_mutex_group	mutex;
 	bool			finished;
-}	t_main;
+}	t_general;
 
 #endif
