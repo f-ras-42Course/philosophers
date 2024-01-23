@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/22 16:11:25 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/23 18:01:47 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <sys/time.h>
 # include <pthread.h>
 # include <string.h>
+# include <stdint.h>
 # include "definitions.h"
 # include "libft.h"
 # include "libftextended.h"
@@ -31,6 +32,7 @@ void	print_error_specify_invalid_input(t_input_type specify);
 // Validate
 bool	valid_input(int argc, char **argv);
 bool	below_max_digits(int max_digits, char *string);
+bool	under_two_hundred(char *string);
 
 // Data
 void	insert_data(int start_data[], int argc, char **argv);

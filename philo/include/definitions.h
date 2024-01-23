@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/22 19:02:24 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/23 17:05:18 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,23 @@ typedef enum e_input_type
 
 typedef struct s_philo
 {
-	int				id;
+	uint8_t			id;
 	pthread_t		thread;
+	pthread_mutex_t	fork_left;
+	pthread_mutex_t	fork_right;
 }	t_philo;
 
-typedef struct s_mutex
+typedef struct s_mutex_group
 {
 	pthread_mutex_t	print;
 	pthread_mutex_t	eat;
 	pthread_mutex_t	finish;
-}	t_mutex;
+}	t_mutex_group;
 
 typedef struct s_main
 {
 	t_philo			*philos;
-	t_mutex			*mutex;
-	pthread_mutex_t	fork[200];
+	t_mutex_group	*mutex;
 	bool			finished;
 }	t_main;
 

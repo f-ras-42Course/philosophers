@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/22 19:02:19 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/23 17:40:21 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	run_philo(t_philo *philos, int start_data[])
 	// 	philosopher += 2;
 	// }
 }
-200
+// 200
 
-199 % 200 
+// 199 % 200 
