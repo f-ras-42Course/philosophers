@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/04 16:40:24 by fras          #+#    #+#                  #
-#    Updated: 2023/12/08 18:26:59 by fras          ########   odam.nl          #
+#    Updated: 2024/01/23 19:30:48 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,6 @@ OBJ_DIR = obj
 PHILO_SOURCES = $(shell find $(SRC_DIR)/ -type f -name "*.c")
 PHILO_OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(PHILO_SOURCES:%.c=%.o))
 RM = rm -f
-
-# Libraries
-LIB_DIR = lib
-EXTLIB_DIR = $(LIB_DIR)/libs42
-LIBRARIES = $(addprefix $(LIB_DIR)/, libft.a libftextended.a)
 
 ifdef DEBUG
 CFLAGS += -g
@@ -38,12 +33,8 @@ endif
 
 all: $(NAME)
 
-philo: $(LIBRARIES) $(PHILO_OBJECTS)
-	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(PHILO_OBJECTS) $(LIBRARIES)
-	@$(MAKE) message EXECUTABLE=$@
-
-philo_bonus: $(LIBRARIES) $(BONUS_OBJECTS)
-	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(BONUS_OBJECTS) $(LIBRARIES)
+philo: $(PHILO_OBJECTS)
+	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(PHILO_OBJECTS)
 	@$(MAKE) message EXECUTABLE=$@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
@@ -51,13 +42,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $^
 
 mandatory: $(NAME)
-
-bonus: $(BONUS)
-
-# Libraries
-$(LIBRARIES): $(EXTLIB_DIR)/$(@F)
-	$(MAKE) -C $(EXTLIB_DIR) $(@F)
-	cp $(EXTLIB_DIR)/$(@F) $@
 
 # Directories
 directories:
@@ -68,8 +52,6 @@ clean:
 	$(RM) -r obj
 
 fclean: clean
-	$(MAKE) -C $(EXTLIB_DIR) $@
-	$(RM) $(LIBRARIES)
 	$(RM) $(NAME)
 
 re: fclean all
