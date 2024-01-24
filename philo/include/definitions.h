@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/24 17:33:30 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/24 17:42:03 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	int				meal_count;
 	uint64_t		last_meal_time;
-	uint8_t			fork_pos[2];
+	uint8_t			fork_id[2];
 }	t_philo;
 
 typedef struct s_mutex_group

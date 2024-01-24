@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 21:04:23 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/24 15:25:27 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/24 17:41:43 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ t_philo	*init_philosophers(int amount)
 	while (amount--)
 	{
 		initialize[i].id = i + 1;
-		initialize[i].fork_pos[LEFT] = i;
+		initialize[i].fork_id[LEFT] = i;
 		if (amount != 0)
-			initialize[i].fork_pos[RIGHT] = i + 1;
+			initialize[i].fork_id[RIGHT] = i + 1;
 		else
-			initialize[i].fork_pos[RIGHT] = 0;
+			initialize[i].fork_id[RIGHT] = 0;
+		initialize[i].meal_count = 0;
 		i++;
 	}
 	return (initialize);
