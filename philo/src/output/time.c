@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   philosophers.c                                     :+:    :+:            */
+/*   time.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/19 21:04:23 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/24 15:25:27 by fras          ########   odam.nl         */
+/*   Created: 2024/01/24 16:33:30 by fras          #+#    #+#                 */
+/*   Updated: 2024/01/24 17:34:00 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_philo	*init_philosophers(int amount)
+uint64_t	get_time(void)
 {
-	t_philo	*initialize;
-	int		i;
+	struct timeval	time;
 
-	i = 0;
-	initialize = malloc(amount * sizeof(t_philo));
-	if (!initialize)
-		return (NULL);
-	while (amount--)
-	{
-		initialize[i].id = i + 1;
-		initialize[i].fork_pos[LEFT] = i;
-		if (amount != 0)
-			initialize[i].fork_pos[RIGHT] = i + 1;
-		else
-			initialize[i].fork_pos[RIGHT] = 0;
-		i++;
-	}
-	return (initialize);
+	if (gettimeofday(&time, NULL))
+		return (0);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
+
