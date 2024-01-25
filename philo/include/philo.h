@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/24 17:34:26 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/25 17:55:08 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ bool		below_max_digits(int max_digits, char *string);
 bool		under_two_hundred(char *string);
 
 // Data
+bool		init_info(int start_data[], int argc, char **argv);
 void		insert_data(int start_data[], int argc, char **argv);
 
 // Philo
