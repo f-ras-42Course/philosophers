@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:20:36 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/23 17:49:09 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/25 17:07:15 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_error(t_exit_codes exit_code)
 		ft_putstr_fd("philo: error invalid input\n", STDERR_FILENO);
 }
 
-void	print_error_specify_invalid_input(t_input_type specify)
+void	print_error_specify_invalid_input(t_info_type specify)
 {
 	if (specify == TOTAL_PHILOSOPHERS)
 		ft_putstr_fd(_RED "number of NUMBER_OF_PHILOSOPHERS must be between 1"\
