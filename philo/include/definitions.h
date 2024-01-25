@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/24 17:42:03 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/25 18:20:13 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef enum e_info_type
 	EAT_TIME,
 	SLEEP_TIME,
 	NUMBER_OF_MEALS,
+	IS_FINISHED,
 	UNEXPECTED_NUMBER_OF_ARGUMENTS
 }	t_info_type;
 
@@ -63,8 +64,9 @@ typedef struct s_mutex_group
 
 typedef struct s_general
 {
-	int				start_data[5];
-	bool			is_finished;
+	int				info[6];
+	t_philo			*philos;
+	t_mutex_group	mutex;
 }	t_general;
 
 #endif
