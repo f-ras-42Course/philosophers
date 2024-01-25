@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:20:36 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 17:07:15 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/25 20:43:11 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	print_error(t_exit_codes exit_code)
 {
-	if (exit_code == MALLOC_FAILED)
-		ft_putstr_fd("philo: error malloc_failed\n", STDERR_FILENO);
 	if (exit_code == INVALID_INPUT)
 		ft_putstr_fd("philo: error invalid input\n", STDERR_FILENO);
+	if (exit_code == MALLOC_FAILED)
+		ft_putstr_fd("philo: error malloc_failed\n", STDERR_FILENO);
+	if (exit_code == MUTEX_FAILED)
+		ft_putstr_fd("philo: error mutex_failed\n", STDERR_FILENO);
 }
 
 void	print_error_specify_invalid_input(t_info_type specify)
