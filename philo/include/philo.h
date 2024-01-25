@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 20:51:30 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/25 21:02:57 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,14 @@ t_philo		*init_philosophers(int amount);
 // Mutex
 bool		init_mutex(t_mutex_group *mutex);
 void		destroy_mutex(t_mutex_group *mutex);
-void	destroy_fork_mutex(pthread_mutex_t *forks, int amount);
+void		destroy_fork_mutex(pthread_mutex_t *forks, int amount);
 
 //______________________________________________________________________________
 
 // --    MAIN    --
 
 // Philo
-void		run_philo(t_philo *philos, int info[]);
+void		run_philo(t_general general);
 //______________________________________________________________________________
 
 
