@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/25 19:18:25 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 20:55:28 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/25 21:10:41 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ bool	init_mutex(t_mutex_group *mutex)
 	}
 	return (true);
 }
-
 
 void	destroy_fork_mutex(pthread_mutex_t *forks, int amount)
 {

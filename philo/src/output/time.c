@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 16:33:30 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/24 17:34:00 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/25 21:10:57 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,3 @@ uint64_t	get_time(void)
 		return (0);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
-

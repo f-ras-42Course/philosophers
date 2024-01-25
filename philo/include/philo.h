@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 21:02:57 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/25 21:11:13 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,5 @@ void		destroy_fork_mutex(pthread_mutex_t *forks, int amount);
 // Philo
 void		run_philo(t_general general);
 //______________________________________________________________________________
-
 
 #endif
