@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 21:11:13 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/01 08:10:40 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		insert_data(int info[], int argc, char **argv);
 // --    OUTPUT    --
 
 // Status
-void		print_status(uint8_t id, t_philo_status what);
+uint64_t	print_status(uint8_t id, t_philo_status what, t_mutex_group mutex);
 char		*doing(t_philo_status what);
 
 // Time
@@ -57,19 +57,28 @@ void		print_error_specify_invalid_input(t_info_type specify);
 //  --    THREADS    --
 
 // Philosophers
-t_philo		*init_philosophers(int amount);
+t_philo		*init_philosophers(int amount, t_general *general);
 
 // Mutex
 bool		init_mutex(t_mutex_group *mutex);
 void		destroy_mutex(t_mutex_group *mutex);
 void		destroy_fork_mutex(pthread_mutex_t *forks, int amount);
 
+// Routine
+
+void		*philosopher_routine(void *ptr);
+void		think(t_philo *philo);
+void		eat(t_philo *philo);
+
 //______________________________________________________________________________
 
 // --    MAIN    --
 
 // Philo
-void		run_philo(t_general general);
+void		run_philo(t_general *general);
+void		check_philo(t_general *general);
+void		end_philo(t_general general);
+
 //______________________________________________________________________________
 
 #endif

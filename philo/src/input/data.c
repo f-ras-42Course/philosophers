@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/14 17:17:52 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 18:15:52 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/01 08:09:46 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	insert_data(int info[], int argc, char **argv)
 	}
 	if (i == 4)
 		info[NUMBER_OF_MEALS] = -1;
-	info[IS_FINISHED] = false;
+	info[PHILO_FINISHED] = false;
 }

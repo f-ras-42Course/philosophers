@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 20:42:40 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/31 17:27:10 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef enum e_info_type
 	EAT_TIME,
 	SLEEP_TIME,
 	NUMBER_OF_MEALS,
-	IS_FINISHED,
+	PHILO_FINISHED,
 	UNEXPECTED_NUMBER_OF_ARGUMENTS
 }	t_info_type;
 
@@ -46,14 +46,6 @@ typedef enum e_philo_status
 	DIED
 }	t_philo_status;
 
-typedef struct s_philo
-{
-	uint8_t			id;
-	pthread_t		thread;
-	int				meal_count;
-	uint64_t		last_meal_time;
-	uint8_t			fork_id[2];
-}	t_philo;
 
 typedef struct s_mutex_group
 {
@@ -66,8 +58,18 @@ typedef struct s_mutex_group
 typedef struct s_general
 {
 	int				info[6];
-	t_philo			*philos;
+	struct s_philo	*philos;
 	t_mutex_group	mutex;
 }	t_general;
+
+typedef struct s_philo
+{
+	uint8_t			id;
+	pthread_t		thread;
+	int				meal_count;
+	uint64_t		last_meal_time;
+	uint8_t			fork_id[2];
+	t_general		*general;
+}	t_philo;
 
 #endif

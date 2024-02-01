@@ -6,13 +6,13 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 21:04:23 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 21:32:29 by fras          ########   odam.nl         */
+/*   Updated: 2024/01/31 16:08:06 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_philo	*init_philosophers(int amount)
+t_philo	*init_philosophers(int amount, t_general *general)
 {
 	t_philo	*initialize;
 	int		i;
@@ -30,14 +30,9 @@ t_philo	*init_philosophers(int amount)
 		else
 			initialize[i].fork_id[RIGHT] = 0;
 		initialize[i].meal_count = 0;
+		initialize[i].last_meal_time = 0;
+		initialize[i].general = general;
 		i++;
 	}
 	return (initialize);
-}
-
-void	philosopher_routine(void *ptr)
-{
-	t_general	*general;
-
-	general = (t_general *)ptr;
 }

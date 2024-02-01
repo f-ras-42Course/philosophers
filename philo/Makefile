@@ -6,14 +6,14 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/04 16:40:24 by fras          #+#    #+#                  #
-#    Updated: 2024/01/23 19:32:02 by fras          ########   odam.nl          #
+#    Updated: 2024/01/30 21:50:39 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-INCLUDE = -I include -I $(EXTLIB_DIR)/include
+INCLUDE = -I include
 SRC_DIR = src
 OBJ_DIR = obj
 PHILO_SOURCES = $(shell find $(SRC_DIR)/ -type f -name "*.c")
@@ -25,7 +25,7 @@ CFLAGS += -g
 endif
 
 ifdef FSAN
-CFLAGS += -fsanitize=address -g
+CFLAGS += -g -fsanitize=thread -fsanitize-undefined-trap-on-error
 endif
 
 # Targets
