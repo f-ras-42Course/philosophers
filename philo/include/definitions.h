@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/31 17:27:10 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/03 17:52:55 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef enum e_info_type
 	EAT_TIME,
 	SLEEP_TIME,
 	NUMBER_OF_MEALS,
-	PHILO_FINISHED,
+	FINISHED,
 	UNEXPECTED_NUMBER_OF_ARGUMENTS
 }	t_info_type;
 

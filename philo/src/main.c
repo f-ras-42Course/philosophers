@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:15 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/01 08:11:06 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/03 17:18:00 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	if (!init_mutex(&general.mutex))
 		return (free(general.philos), print_error(MUTEX_FAILED), MUTEX_FAILED);
 	run_philo(&general);
-	// check_philo(&general);
+	check_philo(&general);
 	end_philo(general);
 	destroy_mutex(&general.mutex);
 	free(general.philos);

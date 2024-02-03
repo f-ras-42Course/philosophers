@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 16:07:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/03 17:07:31 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/03 18:22:29 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*philosopher_routine(void *ptr)
 
 	if (philo->id % 2 == 0)
 		usleep(philo->general->info[EAT_TIME] * 1000);
-	while (!philo->general->info[PHILO_FINISHED])
+	while (!philo->general->info[FINISHED])
 	{
 		thinking(philo);
 		eating(philo);
@@ -60,4 +60,17 @@ void	sleeping(t_philo *philo)
 {
 	print_status(philo->id, SLEEPING, philo->general->mutex);
 	usleep(philo->general->info[SLEEP_TIME] * 1000);
+}
+
+bool	is_finished(t_general *general, bool update)
+{
+	pthread_mutex_lock(&general->mutex.finish);
+	if (general->info[FINISHED] || update == true)
+	{
+		general->info[FINISHED] = true;
+		pthread_mutex_unlock(&general->mutex.finish);
+		return (true);
+	}
+	pthread_mutex_unlock(&general->mutex.finish);
+	return (false);
 }

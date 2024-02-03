@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 16:33:30 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/03 16:13:10 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/03 19:23:21 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,13 @@ uint64_t	get_time(void)
 		start_set = true;
 	}
 	return (current_time - start_time);
+}
+
+void	ms_sleep(t_general *general, uint64_t ms)
+{
+	uint64_t	start_time;
+
+	start_time = get_time();
+	while (!is_finished(general, false) && get_time() - start_time < ms)
+		usleep(1);
 }

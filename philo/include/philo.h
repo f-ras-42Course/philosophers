@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/03 17:07:12 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/03 19:58:35 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,13 @@ void		*philosopher_routine(void *ptr);
 void		thinking(t_philo *philo);
 void		eating(t_philo *philo);
 void		sleeping(t_philo *philo);
+bool		is_finished(t_general *general, bool update);
 
-//______________________________________________________________________________
-
-// --    MAIN    --
-
-// Philo
+// Primary
 void		run_philo(t_general *general);
 void		check_philo(t_general *general);
+bool		philos_ate_enough(t_philo *philo, uint8_t *meal_checker);
+bool		philo_dead(t_philo *philo);
 void		end_philo(t_general general);
 
 //______________________________________________________________________________
