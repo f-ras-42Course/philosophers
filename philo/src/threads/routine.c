@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 16:07:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/01 10:52:35 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/03 17:07:31 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,19 @@ void	*philosopher_routine(void *ptr)
 		usleep(philo->general->info[EAT_TIME] * 1000);
 	while (!philo->general->info[PHILO_FINISHED])
 	{
-		think(philo);
-		eat(philo);
+		thinking(philo);
+		eating(philo);
+		sleeping(philo);
 	}
 	return (0);
 }
 
-void	think(t_philo *philo)
+void	thinking(t_philo *philo)
 {
 	print_status(philo->id, THINKING, philo->general->mutex);
 }
 
-void	eat(t_philo *philo)
+void	eating(t_philo *philo)
 {
 	pthread_mutex_t	*fork;
 
@@ -52,4 +53,11 @@ void	eat(t_philo *philo)
 	usleep(philo->general->info[EAT_TIME] * 1000);
 	pthread_mutex_unlock(&fork[philo->fork_id[LEFT]]);
 	pthread_mutex_unlock(&fork[philo->fork_id[RIGHT]]);
+}
+
+
+void	sleeping(t_philo *philo)
+{
+	print_status(philo->id, SLEEPING, philo->general->mutex);
+	usleep(philo->general->info[SLEEP_TIME] * 1000);
 }
