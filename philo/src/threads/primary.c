@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 16:50:26 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 22:05:58 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ void	run_philo(t_general *general)
 
 	philos_to_create = general->info[TOTAL_PHILOSOPHERS];
 	philo = general->philos;
+	pthread_mutex_lock(&general->mutex.start);
 	while (philos_to_create--)
 	{
 		pthread_create(&philo->thread, NULL, \
 						philosopher_routine, philo);
 		philo++; // protecten + is_finished @ true
 	}
+	pthread_mutex_unlock(&general->mutex.start);
 }
 
 void	check_philo(t_general *general)

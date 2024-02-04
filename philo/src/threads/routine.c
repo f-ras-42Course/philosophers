@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 16:07:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 16:45:37 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 22:05:51 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	*philosopher_routine(void *ptr)
 	t_philo		*philo;
 
 	philo = (t_philo *)ptr;
+	pthread_mutex_lock(&philo->general->mutex.start);
+	pthread_mutex_unlock(&philo->general->mutex.start);
 	if (philo->id % 2 == 0)
-		usleep(philo->general->info[EAT_TIME] * 1000); // start lock
+		ms_sleep(philo->general, philo->general->info[EAT_TIME]);
 	while (!philo->general->info[FINISHED])
 	{
 		if (!is_finished(philo->general, false))
