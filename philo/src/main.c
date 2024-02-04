@@ -6,13 +6,11 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:15 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 14:14:19 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 14:46:46 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	print_input(int	arr[]);
 
 int	main(int argc, char **argv)
 {

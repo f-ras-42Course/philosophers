@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/03 17:52:55 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 14:46:28 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef enum e_philo_status
 	THINKING,
 	DIED
 }	t_philo_status;
-
 
 typedef struct s_mutex_group
 {
