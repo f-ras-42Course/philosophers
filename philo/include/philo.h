@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 14:22:07 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 16:12:02 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void		insert_data(int info[], int argc, char **argv);
 // --    OUTPUT    --
 
 // Status
-uint64_t	print_status(uint8_t id, t_philo_status what, t_mutex_group mutex);
+uint64_t	print_status(t_philo *philo, t_philo_status what, \
+				t_mutex_group mutex);
 char		*doing(t_philo_status what);
 
 // Time

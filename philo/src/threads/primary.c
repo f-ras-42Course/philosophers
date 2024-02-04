@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 14:47:08 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 16:50:26 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	run_philo(t_general *general)
 	{
 		pthread_create(&philo->thread, NULL, \
 						philosopher_routine, philo);
-		philo++;
+		philo++; // protecten + is_finished @ true
 	}
 }
 
@@ -46,8 +46,7 @@ void	check_philo(t_general *general)
 					return ;
 			if (philo_dead(philo))
 				return ;
-			if (philos_to_check)
-				philo++;
+			philo++;
 		}
 		pthread_mutex_unlock(&general->mutex.eat);
 		usleep(1000);
@@ -73,7 +72,7 @@ bool	philo_dead(t_philo *philo)
 		>= (uint64_t)philo->general->info[DIE_TIME])
 	{
 		is_finished(philo->general, true);
-		print_status(philo->id, DIED, philo->general->mutex);
+		print_status(philo, DIED, philo->general->mutex);
 		pthread_mutex_unlock(&philo->general->mutex.eat);
 		return (true);
 	}

@@ -6,16 +6,19 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 15:35:25 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 14:47:49 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 17:14:05 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-uint64_t	print_status(uint8_t id, t_philo_status what, t_mutex_group mutex)
+uint64_t	print_status(t_philo *philo, t_philo_status what, \
+				t_mutex_group mutex)
 {
+	if (is_finished(philo->general, false) && what != DIED)
+		return (0);
 	pthread_mutex_lock(&mutex.print);
-	printf("%lu %d %s\n", get_time(), id, doing(what));
+	printf("%lu %d %s\n", get_time(), philo->id, doing(what));
 	pthread_mutex_unlock(&mutex.print);
 	return (get_time());
 }
