@@ -6,12 +6,12 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/04 16:40:24 by fras          #+#    #+#                  #
-#    Updated: 2024/01/30 21:50:39 by fras          ########   odam.nl          #
+#    Updated: 2024/02/04 16:32:57 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
-CC = gcc
+CC = cc
 CFLAGS = -Werror -Wextra -Wall
 INCLUDE = -I include
 SRC_DIR = src
