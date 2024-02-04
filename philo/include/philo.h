@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 16:12:02 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 21:31:17 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ uint64_t	get_time(void);
 void		ms_sleep(t_general *general, uint64_t ms);
 
 // Error
-void		print_error(t_exit_codes exit_code);
+int			print_error(t_exit_codes exit_code);
 void		print_error_specify_invalid_input(t_info_type specify);
 
 //______________________________________________________________________________
@@ -62,9 +62,9 @@ void		print_error_specify_invalid_input(t_info_type specify);
 t_philo		*init_philosophers(int amount, t_general *general);
 
 // Mutex
-bool		init_mutex(t_mutex_group *mutex);
-void		destroy_mutex(t_mutex_group *mutex);
-void		destroy_fork_mutex(pthread_mutex_t *forks, int amount);
+int			init_mutex(t_mutex_group *mutex, int fork_amount);
+void		destroy_mutex(t_mutex_group *mutex, int fork_amount, \
+			int mutex_amount);
 
 // Routine
 

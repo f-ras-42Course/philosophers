@@ -6,20 +6,23 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:20:36 by fras          #+#    #+#                 */
-/*   Updated: 2024/01/25 20:43:11 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 21:32:27 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	print_error(t_exit_codes exit_code)
+int	print_error(t_exit_codes exit_code)
 {
 	if (exit_code == INVALID_INPUT)
 		ft_putstr_fd("philo: error invalid input\n", STDERR_FILENO);
-	if (exit_code == MALLOC_FAILED)
-		ft_putstr_fd("philo: error malloc_failed\n", STDERR_FILENO);
+	if (exit_code == MALLOC_FAILED_PHILOS)
+		ft_putstr_fd("philo: error malloc_failed in philos\n", STDERR_FILENO);
+	if (exit_code == MALLOC_FAILED_MUTEX)
+		ft_putstr_fd("philo: error malloc_failed in mutex\n", STDERR_FILENO);
 	if (exit_code == MUTEX_FAILED)
 		ft_putstr_fd("philo: error mutex_failed\n", STDERR_FILENO);
+	return (exit_code);
 }
 
 void	print_error_specify_invalid_input(t_info_type specify)

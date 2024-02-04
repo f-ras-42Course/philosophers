@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:15 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 14:46:46 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 21:44:22 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ int	main(int argc, char **argv)
 	general.philos = \
 		init_philosophers(general.info[TOTAL_PHILOSOPHERS], &general);
 	if (!general.philos)
-		return (print_error(MALLOC_FAILED), MALLOC_FAILED);
-	if (!init_mutex(&general.mutex))
-		return (free(general.philos), print_error(MUTEX_FAILED), MUTEX_FAILED);
+		return (print_error(MALLOC_FAILED_PHILOS));
+	if (init_mutex(&general.mutex, general.info[TOTAL_PHILOSOPHERS]))
+		return (free(general.philos), free(general.mutex.fork), MUTEX_FAILED);
 	run_philo(&general);
 	check_philo(&general);
 	end_philo(general);
-	destroy_mutex(&general.mutex);
-	free(general.philos);
-	return (EXIT_SUCCESS);
+	destroy_mutex(&general.mutex, general.info[TOTAL_PHILOSOPHERS], 5);
+	return (free(general.philos), free(general.mutex.fork), EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 14:46:28 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 21:32:49 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 typedef enum e_exit_codes
 {
 	INVALID_INPUT = 1,
-	MALLOC_FAILED,
+	MALLOC_FAILED_PHILOS,
+	MALLOC_FAILED_MUTEX,
 	MUTEX_FAILED
 }	t_exit_codes;
 
@@ -48,9 +49,10 @@ typedef enum e_philo_status
 
 typedef struct s_mutex_group
 {
-	pthread_mutex_t	fork[200];
+	pthread_mutex_t	*fork;
 	pthread_mutex_t	print;
 	pthread_mutex_t	eat;
+	pthread_mutex_t	start;
 	pthread_mutex_t	finish;
 }	t_mutex_group;
 
