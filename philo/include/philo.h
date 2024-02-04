@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/03 19:58:35 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 14:22:07 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char		*doing(t_philo_status what);
 
 // Time
 uint64_t	get_time(void);
+void		ms_sleep(t_general *general, uint64_t ms);
 
 // Error
 void		print_error(t_exit_codes exit_code);

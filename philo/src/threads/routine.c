@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 16:07:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/03 18:22:29 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/04 14:42:56 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ void	*philosopher_routine(void *ptr)
 	t_philo		*philo;
 
 	philo = (t_philo *)ptr;
-
 	if (philo->id % 2 == 0)
 		usleep(philo->general->info[EAT_TIME] * 1000);
 	while (!philo->general->info[FINISHED])
 	{
-		thinking(philo);
-		eating(philo);
-		sleeping(philo);
+		if (!is_finished(philo->general, false))
+			thinking(philo);
+		if (!is_finished(philo->general, false))	
+			eating(philo);
+		if (!is_finished(philo->general, false))
+			sleeping(philo);
 	}
 	return (0);
 }
@@ -48,18 +50,20 @@ void	eating(t_philo *philo)
 	pthread_mutex_lock(&philo->general->mutex.eat);
 	philo->last_meal_time = \
 		print_status(philo->id, EATING, philo->general->mutex);
-	philo->meal_count++;
 	pthread_mutex_unlock(&philo->general->mutex.eat);
-	usleep(philo->general->info[EAT_TIME] * 1000);
+	ms_sleep(philo->general, philo->general->info[EAT_TIME]);
 	pthread_mutex_unlock(&fork[philo->fork_id[LEFT]]);
 	pthread_mutex_unlock(&fork[philo->fork_id[RIGHT]]);
+	pthread_mutex_lock(&philo->general->mutex.eat);
+	philo->meal_count++;
+	pthread_mutex_unlock(&philo->general->mutex.eat);
 }
 
 
 void	sleeping(t_philo *philo)
 {
 	print_status(philo->id, SLEEPING, philo->general->mutex);
-	usleep(philo->general->info[SLEEP_TIME] * 1000);
+	ms_sleep(philo->general, philo->general->info[SLEEP_TIME]);
 }
 
 bool	is_finished(t_general *general, bool update)
