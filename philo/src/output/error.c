@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:20:36 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 21:32:27 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/05 15:50:57 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	print_error(t_exit_codes exit_code)
 		ft_putstr_fd("philo: error malloc_failed in mutex\n", STDERR_FILENO);
 	if (exit_code == MUTEX_FAILED)
 		ft_putstr_fd("philo: error mutex_failed\n", STDERR_FILENO);
+	if (exit_code == CREATE_THREAD_FAILED)
+		ft_putstr_fd("philo: error create_thread_failed\n", STDERR_FILENO);
 	return (exit_code);
 }
 

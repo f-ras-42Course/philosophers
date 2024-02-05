@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 21:32:49 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/05 15:49:47 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef enum e_exit_codes
 	INVALID_INPUT = 1,
 	MALLOC_FAILED_PHILOS,
 	MALLOC_FAILED_MUTEX,
-	MUTEX_FAILED
+	MUTEX_FAILED,
+	CREATE_THREAD_FAILED
 }	t_exit_codes;
 
 typedef enum e_info_type

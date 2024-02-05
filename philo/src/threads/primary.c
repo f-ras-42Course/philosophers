@@ -6,27 +6,33 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 22:05:58 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/05 16:23:20 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	run_philo(t_general *general)
+bool	run_philo(t_general *general)
 {
 	t_philo	*philo;
 	int		philos_to_create;
 
 	philos_to_create = general->info[TOTAL_PHILOSOPHERS];
 	philo = general->philos;
-	pthread_mutex_lock(&general->mutex.start);
 	while (philos_to_create--)
 	{
-		pthread_create(&philo->thread, NULL, \
-						philosopher_routine, philo);
-		philo++; // protecten + is_finished @ true
+		if (pthread_create(&philo->thread, NULL, philosopher_routine, philo))
+		{
+			general->info[TOTAL_PHILOSOPHERS] = \
+			(general->info[TOTAL_PHILOSOPHERS] - (philos_to_create + 1));
+			is_finished(philo->general, true);
+			end_philo(*general);
+			print_error(CREATE_THREAD_FAILED);
+			return (false);
+		}
+		philo++;
 	}
-	pthread_mutex_unlock(&general->mutex.start);
+	return (true);
 }
 
 void	check_philo(t_general *general)
