@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/25 19:18:25 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/05 16:26:39 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/05 19:41:43 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ int	init_mutex(t_mutex_group *mutex, int fork_amount)
 	if (pthread_mutex_init(&mutex->eat, NULL))
 		return (destroy_mutex(mutex, fork_amount, 2), \
 				print_error(MUTEX_FAILED));
-	if (pthread_mutex_init(&mutex->finish, NULL))
+	if (pthread_mutex_init(&mutex->start, NULL))
 		return (destroy_mutex(mutex, fork_amount, 3), \
+				print_error(MUTEX_FAILED));
+	if (pthread_mutex_init(&mutex->finish, NULL))
+		return (destroy_mutex(mutex, fork_amount, 4), \
 				print_error(MUTEX_FAILED));
 	return (0);
 }
@@ -49,5 +52,7 @@ void	destroy_mutex(t_mutex_group *mutex, int fork_amount, int mutex_amount)
 	if (mutex_amount >= 3)
 		pthread_mutex_destroy(&mutex->eat);
 	if (mutex_amount >= 4)
+		pthread_mutex_destroy(&mutex->start);
+	if (mutex_amount >= 5)
 		pthread_mutex_destroy(&mutex->finish);
 }

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 16:07:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/05 15:41:45 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/05 20:42:17 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ void	*philosopher_routine(void *ptr)
 	t_philo		*philo;
 
 	philo = (t_philo *)ptr;
+	pthread_mutex_lock(&philo->general->mutex.start);
+	pthread_mutex_unlock(&philo->general->mutex.start);
 	if (philo->id % 2 == 0)
 		usleep(philo->general->info[EAT_TIME] * 1000);
 	while (!philo->general->info[FINISHED])
 	{
-		if (!is_finished(philo->general, false))
-			thinking(philo);
-		if (!is_finished(philo->general, false))
-			eating(philo);
-		if (!is_finished(philo->general, false))
-			sleeping(philo);
+		thinking(philo);
+		if (philo->id % 2 != 0)
+			eating_left(philo);
+		else
+			eating_right(philo);
+		sleeping(philo);
 	}
 	return (0);
 }
@@ -36,7 +38,7 @@ void	thinking(t_philo *philo)
 	print_status(philo, THINKING, philo->general->mutex);
 }
 
-void	eating(t_philo *philo)
+void	eating_left(t_philo *philo)
 {
 	pthread_mutex_t	*fork;
 
@@ -61,6 +63,33 @@ void	eating(t_philo *philo)
 		ms_sleep(philo->general, UINT64_MAX);
 	pthread_mutex_unlock(&fork[philo->fork_id[LEFT]]);
 }
+
+void	eating_right(t_philo *philo)
+{
+	pthread_mutex_t	*fork;
+
+	fork = philo->general->mutex.fork;
+	pthread_mutex_lock(&fork[philo->fork_id[RIGHT]]);
+	print_status(philo, TAKING_FORK, philo->general->mutex);
+	if (philo->general->info[TOTAL_PHILOSOPHERS] != 1)
+	{
+		pthread_mutex_lock(&fork[philo->fork_id[LEFT]]);
+		print_status(philo, TAKING_FORK, philo->general->mutex);
+		pthread_mutex_lock(&philo->general->mutex.eat);
+		philo->last_meal_time = \
+			print_status(philo, EATING, philo->general->mutex);
+		pthread_mutex_unlock(&philo->general->mutex.eat);
+		ms_sleep(philo->general, philo->general->info[EAT_TIME]);
+		pthread_mutex_lock(&philo->general->mutex.eat);
+		philo->meal_count++;
+		pthread_mutex_unlock(&philo->general->mutex.eat);
+		pthread_mutex_unlock(&fork[philo->fork_id[LEFT]]);
+	}
+	else
+		ms_sleep(philo->general, UINT64_MAX);
+	pthread_mutex_unlock(&fork[philo->fork_id[RIGHT]]);
+}
+
 
 void	sleeping(t_philo *philo)
 {
