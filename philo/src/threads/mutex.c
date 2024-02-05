@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/25 19:18:25 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 21:33:16 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/05 15:09:22 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	init_mutex(t_mutex_group *mutex, int fork_amount)
 	mutex->fork = malloc(fork_amount * sizeof(pthread_mutex_t));
 	if (!mutex->fork)
 		return (print_error(MALLOC_FAILED_MUTEX));
-	while (++i < 200)
+	while (++i < fork_amount)
 		if (pthread_mutex_init(&mutex->fork[i], NULL))
 			return (destroy_mutex(mutex, fork_amount, 1), \
 					print_error(MUTEX_FAILED));
