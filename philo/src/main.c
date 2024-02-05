@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:15 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/05 15:53:50 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/05 16:28:52 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ int	main(int argc, char **argv)
 	if (init_mutex(&general.mutex, general.info[TOTAL_PHILOSOPHERS]))
 		return (free(general.philos), free(general.mutex.fork), MUTEX_FAILED);
 	if (!run_philo(&general))
-		return (CREATE_THREAD_FAILED);
+		return (free(general.philos), free(general.mutex.fork), destroy_mutex(\
+				&general.mutex, general.info[TOTAL_PHILOSOPHERS], 4), \
+				CREATE_THREAD_FAILED);
 	check_philo(&general);
 	end_philo(general);
-	destroy_mutex(&general.mutex, general.info[TOTAL_PHILOSOPHERS], 5);
+	destroy_mutex(&general.mutex, general.info[TOTAL_PHILOSOPHERS], 4);
 	return (free(general.philos), free(general.mutex.fork), EXIT_SUCCESS);
 }

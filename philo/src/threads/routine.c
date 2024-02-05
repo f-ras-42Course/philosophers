@@ -6,23 +6,19 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 16:07:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/04 22:05:51 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/05 15:41:45 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-// notes made in run_philo and below
-// check alive status in run_philo, update last meal time in philosopher_routine
 
 void	*philosopher_routine(void *ptr)
 {
 	t_philo		*philo;
 
 	philo = (t_philo *)ptr;
-	pthread_mutex_lock(&philo->general->mutex.start);
-	pthread_mutex_unlock(&philo->general->mutex.start);
 	if (philo->id % 2 == 0)
-		ms_sleep(philo->general, philo->general->info[EAT_TIME]);
+		usleep(philo->general->info[EAT_TIME] * 1000);
 	while (!philo->general->info[FINISHED])
 	{
 		if (!is_finished(philo->general, false))
