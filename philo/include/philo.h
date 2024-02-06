@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:40:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/05 20:21:37 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/06 12:46:19 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ void		destroy_mutex(t_mutex_group *mutex, int fork_amount, \
 
 void		*philosopher_routine(void *ptr);
 void		thinking(t_philo *philo);
-void		eating_left(t_philo *philo);
-void		eating_right(t_philo *philo);
+void		eating(t_philo *philo);
 void		sleeping(t_philo *philo);
 bool		is_finished(t_general *general, bool update);
 
