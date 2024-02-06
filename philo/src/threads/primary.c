@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/05 20:41:50 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/06 13:18:20 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ bool	philo_dead(t_philo *philo)
 		>= (uint64_t)philo->general->info[DIE_TIME])
 	{
 		is_finished(philo->general, true);
+		usleep(200);
 		print_status(philo, DIED, philo->general->mutex);
 		pthread_mutex_unlock(&philo->general->mutex.eat);
 		return (true);
