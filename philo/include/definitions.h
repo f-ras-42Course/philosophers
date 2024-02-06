@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:49:54 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/05 19:40:27 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/06 12:17:35 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_mutex_group
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	print;
 	pthread_mutex_t	eat;
-	pthread_mutex_t start;
+	pthread_mutex_t	start;
 	pthread_mutex_t	finish;
 }	t_mutex_group;
 

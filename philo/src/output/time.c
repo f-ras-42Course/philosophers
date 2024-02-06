@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 16:33:30 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/03 19:23:21 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/06 12:25:18 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	ms_sleep(t_general *general, uint64_t ms)
 
 	start_time = get_time();
 	while (!is_finished(general, false) && get_time() - start_time < ms)
-		usleep(1);
+		usleep(200);
 }
