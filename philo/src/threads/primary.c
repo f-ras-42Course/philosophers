@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:03:18 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/06 14:42:32 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/06 19:25:57 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ bool	run_philo(t_general *general)
 void	check_philo(t_general *general)
 {
 	t_philo	*philo;
-	uint8_t	philos_to_check;
-	uint8_t	meal_checker;
+	int		philos_to_check;
+	int		meal_checker;
 
 	while (1)
 	{
