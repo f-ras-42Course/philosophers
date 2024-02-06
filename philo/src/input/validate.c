@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/04 17:44:22 by fras          #+#    #+#                 */
-/*   Updated: 2024/02/06 12:18:11 by fras          ########   odam.nl         */
+/*   Updated: 2024/02/06 14:43:49 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,3 @@ bool	below_max_digits(int max_digits, char *string)
 	}
 	return (true);
 }
-
-// bool	under_two_hundred(char *string)
-// {
-// 	if (ft_strlen(string) > 3
-// 		|| (ft_strlen(string) == 3 && string[0] > '2')
-// 		|| (ft_strlen(string) > 1
-// 		&& (string[0] == '2' && (string[1] > '0' || string[2] > '0'))))
-// 		return (false);
-// 	return (true);
-// }
